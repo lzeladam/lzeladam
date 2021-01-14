@@ -39,8 +39,8 @@ baseurl: "/lzeladam" # the subpath of your site, e.g. "/blog".
 # Github and twitter are optional:
 minima:
   social_links:
-    twitter: fastdotai
-    github: fastai
+    twitter: lzeladam
+    github: lzeladam
 
 # Set this to true to get LaTeX math equation support
 use_math: 
