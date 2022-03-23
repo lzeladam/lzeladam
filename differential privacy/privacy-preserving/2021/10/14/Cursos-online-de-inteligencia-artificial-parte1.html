@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>¿Por qué la privacidad diferencial es increíble? | Alexander Zelada</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="¿Por qué la privacidad diferencial es increíble?" />
+<meta name="author" content="Alexander Zelada" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Traducción al español del post: Why differential privacy is awesome](https://desfontain.es/privacy/differential-privacy-awesomeness.html) by [@TedOnPrivacy" />
+<meta property="og:description" content="Traducción al español del post: Why differential privacy is awesome](https://desfontain.es/privacy/differential-privacy-awesomeness.html) by [@TedOnPrivacy" />
+<link rel="canonical" href="https://lzeladam.github.io/lzeladam/differential%20privacy/privacy-preserving/2021/10/14/Cursos-online-de-inteligencia-artificial-parte1.html" />
+<meta property="og:url" content="https://lzeladam.github.io/lzeladam/differential%20privacy/privacy-preserving/2021/10/14/Cursos-online-de-inteligencia-artificial-parte1.html" />
+<meta property="og:site_name" content="Alexander Zelada" />
+<meta property="og:image" content="https://lzeladam.github.io/lzeladam/images/privacy.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-10-14T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"¿Por qué la privacidad diferencial es increíble?","url":"https://lzeladam.github.io/lzeladam/differential%20privacy/privacy-preserving/2021/10/14/Cursos-online-de-inteligencia-artificial-parte1.html","dateModified":"2021-10-14T00:00:00-05:00","datePublished":"2021-10-14T00:00:00-05:00","image":"https://lzeladam.github.io/lzeladam/images/privacy.png","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lzeladam.github.io/lzeladam/differential%20privacy/privacy-preserving/2021/10/14/Cursos-online-de-inteligencia-artificial-parte1.html"},"author":{"@type":"Person","name":"Alexander Zelada"},"description":"Traducción al español del post: Why differential privacy is awesome](https://desfontain.es/privacy/differential-privacy-awesomeness.html) by [@TedOnPrivacy","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/lzeladam/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lzeladam.github.io/lzeladam/feed.xml" title="Alexander Zelada" /><link rel="shortcut icon" type="image/png" sizes="32x32" href="/lzeladam/images/favicon.png"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/lzeladam/">Alexander Zelada</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/lzeladam/about/">About Me</a><a class="page-link" href="/lzeladam/search/">Search</a><a class="page-link" href="/lzeladam/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">¿Por qué la privacidad diferencial es increíble?</h1><p class="page-description">Traducción al español del post: <a href='https://twitter.com/TedOnPrivacy'>Why differential privacy is awesome](https://desfontain.es/privacy/differential-privacy-awesomeness.html)  by [@TedOnPrivacy</a></p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-10-14T00:00:00-05:00" itemprop="datePublished">
+        Oct 14, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Alexander Zelada</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/lzeladam/categories/#Differential Privacy">Differential Privacy</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/lzeladam/categories/#Privacy-Preserving">Privacy-Preserving</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/lzeladam/lzeladam/tree/master/_notebooks/2021-10-14-Cursos-online-de-inteligencia-artificial-parte1.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/lzeladam/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/lzeladam/lzeladam/master?filepath=_notebooks%2F2021-10-14-Cursos-online-de-inteligencia-artificial-parte1.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/lzeladam/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/lzeladam/lzeladam/blob/master/_notebooks/2021-10-14-Cursos-online-de-inteligencia-artificial-parte1.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/lzeladam/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#La-idea-central-detrás-de-la-privacidad-diferencial">La idea central detrás de la privacidad diferencial </a></li>
+<li class="toc-entry toc-h2"><a href="#¿Qué-hace-que-la-privacidad-diferencial-sea-especial?">¿Qué hace que la privacidad diferencial sea especial? </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1.-Ya-no-es-necesario-el-modelado-de-ataques">1. Ya no es necesario el modelado de ataques </a></li>
+<li class="toc-entry toc-h3"><a href="#2.-Puedes-cuantificar-la-pérdida-de-privacidad">2. Puedes cuantificar la pérdida de privacidad </a></li>
+<li class="toc-entry toc-h3"><a href="#3.-Puedes-elaborar-múltiples-mecanismos">3. Puedes elaborar múltiples mecanismos </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Conclusión">Conclusión </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-10-14-Cursos-online-de-inteligencia-artificial-parte1.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>¿Cómo se puede publicar los datos de las personas protegiendo su privacidad? Esta pregunta está lejos de ser nueva. Las agencias de estadística se han enfrentado a esto durante décadas. Los informáticos han elaborado varios conceptos para plasmar esta idea. Sin embargo, ninguno de ellos ha sido muy satisfactorio: se demostró que todos estos conceptos se rompían en algunas circunstancias. También eran difíciles de aplicar sin destruir la utilidad de los datos.</p>
+<p>Todo esto cambió en 2006, cuando cuatro investigadores introdujeron la privacidad diferencial. Este nuevo concepto adoptó un enfoque novedoso para definir la filtración de privacidad, uno que resultaría mucho más riguroso y fructífero. Entonces, ¿qué hace que la privacidad diferencial sea especial? ¿Cómo tuvo tanto éxito en los círculos académicos? ¿Por qué los gobiernos y las empresas tecnológicas comenzaron a adoptar la privacidad diferencial en la publicación de sus  datos?</p>
+<p>Este primer artículo de introducción a la privacidad diferencial intentará responder a esa pregunta. Primero, describiremos a grandes rasgos lo que hay detrás de este concepto tan exitoso. Luego, explicaremos por qué tiene tanto éxito y por qué es mucho mejor que todos los conceptos elaborados hasta ahora</p>
+<h2 id="La-idea-central-detrás-de-la-privacidad-diferencial">
+<a class="anchor" href="#La-idea-central-detr%C3%A1s-de-la-privacidad-diferencial" aria-hidden="true"><span class="octicon octicon-link"></span></a>La idea central detrás de la privacidad diferencial<a class="anchor-link" href="#La-idea-central-detr%C3%A1s-de-la-privacidad-diferencial"> </a>
+</h2>
+<p>Suponga que tiene un proceso que toma alguna base de datos como entrada y devuelve alguna salida.</p>
+<p><img src="/lzeladam/images/copied_from_nb/../images/df1.png" alt="andrewngunderstand.jpeg"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Puede ser cualquier proceso. Por ejemplo:</p>
+<ul>
+<li>Un proceso que calcula algunas estadísticas ("dime cuántos usuarios tienen el pelo rojo")</li>
+<li>Una estrategia de de-identificación ("eliminar nombres y los últimos tres dígitos de los códigos postales")</li>
+<li>Un proceso de entrenamiento de machine learning ("construir un modelo para predecir a qué usuarios les gustan los gatos")</li>
+<li>... Ya vas entendiendo la idea.</li>
+</ul>
+<p>Para hacer que un proceso sea diferencialmente privado, generalmente debes modificarlo un poco. Por lo general, se agrega algo de aleatoriedad o ruido en algunos lugares. Lo que haga exactamente y cuánto ruido se agregue depende del proceso que se esté modificando. Voy a prescindir de esa parte y simplemente diré que tu proceso ahora está haciendo una “magia” desconocida.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/lzeladam/images/copied_from_nb/../images/df2.png" alt="notebook.png"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ahora, elimina a alguien de tu base de datos y ejecuta nuevamente el proceso. Si el nuevo proceso es diferencialmente privado, entonces las dos salidas son básicamente las mismas. Esto debe ser cierto sin importar a quién se elimine y qué base de datos tenía en primer lugar.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/lzeladam/images/copied_from_nb/../images/df3.png" alt="courseraDeepLearningSpecialization.png"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Por "básicamente lo mismo", no me refiero a "se parece un poco". En principio, recuerda que la magia que agregaste al proceso fue aleatoria. No siempre se obtiene el mismo resultado si se ejecuta el nuevo proceso varias veces. Entonces, ¿qué significa "básicamente lo mismo" en este contexto? Significa que puede obtener exactamente el mismo resultado de ambas bases de datos con una probabilidad similar.</p>
+<p>¿Qué tiene que ver esto con la privacidad? Bueno, supongamos que eres una atacante que intenta averiguar si su objetivo está en los datos originales. Con mirar el resultado final, no se puede estar 100% seguro de nada. Claro, podría haber venido de una base de datos con su objetivo en ella. Pero también podría haber venido exactamente de la misma base de datos, sin su objetivo. Ambas opciones tienen una probabilidad similar, por lo que no hay mucho que puedas decir.</p>
+<p>Es posible que hayas notado que esta definición no dice nada sobre cómo se ven los datos de salida. La privacidad diferencial no es una propiedad de los datos de salida. Es muy diferente, digamos, k-anonymity, una de las primeras definiciones de privacidad de datos. No puede mirar los datos de salida y determinar si satisface la privacidad diferencial. En cambio, la privacidad diferencial es una propiedad del proceso: debes saber cómo se generaron los datos para determinar si son diferencialmente privados.</p>
+<p>A grandes rasgos es eso. Es un poco abstracto, pero no muy complicado. Entonces, ¿por qué todo el hype? ¿Qué hace a la privacidad diferencial tan increíble en comparación con definiciones más antiguas y sencillas?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="¿Qué-hace-que-la-privacidad-diferencial-sea-especial?">
+<a class="anchor" href="#%C2%BFQu%C3%A9-hace-que-la-privacidad-diferencial-sea-especial?" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Qué hace que la privacidad diferencial sea especial?<a class="anchor-link" href="#%C2%BFQu%C3%A9-hace-que-la-privacidad-diferencial-sea-especial?"> </a>
+</h2>
+<p>Los expertos en privacidad, especialmente en el mundo académico, están entusiasmados con la privacidad diferencial. Fue propuesto por primera vez por Cynthia Dwork, Frank McSherry, Kobbi Nissim y Adam Smith en 2006. Muy pronto, casi todos los investigadores que trabajaban en la anonimización comenzaron a construir algoritmos diferencialmente privados. Las empresas tecnológicas y los gobiernos lo están adoptando rápidamente. Entonces, ¿por qué todo el hype? En mi opinión existen tres razones principales.</p>
+<h3 id="1.-Ya-no-es-necesario-el-modelado-de-ataques">
+<a class="anchor" href="#1.-Ya-no-es-necesario-el-modelado-de-ataques" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Ya no es necesario el modelado de ataques<a class="anchor-link" href="#1.-Ya-no-es-necesario-el-modelado-de-ataques"> </a>
+</h3>
+<p>Todas las definiciones anteriores requerían algunas suposiciones sobre el atacante. Para elegir el concepto correcto, necesitas averiguar las capacidades y objetivos del atacante. ¿Cuánto conocimiento previo tienen los atacantes? ¿Qué datos auxiliares pueden usar? ¿Qué tipo de información quieren aprender?</p>
+<p>Hacerlo en la práctica es difícil y muy propenso a errores. Responder a estas preguntas es muy complicado: en particular, es posible que no sepas exactamente lo que el atacante quiere o es capaz de hacer. Peor aún, puede haber incógnitas desconocidas: vectores de ataque que no hayas anticipado. Por esa razón, no podrías hacer declaraciones muy amplias con estas definiciones o conceptos de la vieja escuela. Tenías que hacer algunas suposiciones de las que no podías estar 100% seguro.</p>
+<p>Por el contrario, cuando utilizas la privacidad diferencial, obtienes dos garantías impresionantes.</p>
+<p>Usted protege cualquier tipo de información sobre un individuo. No importa lo que el atacante quiera hacer. Reidentificar su objetivo, saber si están en el conjunto de datos, deducir algún atributo sensible... Todas esas cosas están protegidas. Por lo tanto, no tienes que pensar en los objetivos de tu atacante.
+Funciona independientemente de lo que el atacante sepa sobre tus datos. Es posible que ya conozcan a algunas personas en la base de datos. Incluso podrían agregar algunos usuarios falsos a su sistema. Con privacidad diferencial, no importa. Los usuarios que el atacante aún no conoce están protegidos.</p>
+<h3 id="2.-Puedes-cuantificar-la-pérdida-de-privacidad">
+<a class="anchor" href="#2.-Puedes-cuantificar-la-p%C3%A9rdida-de-privacidad" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Puedes cuantificar la pérdida de privacidad<a class="anchor-link" href="#2.-Puedes-cuantificar-la-p%C3%A9rdida-de-privacidad"> </a>
+</h3>
+<p>La privacidad diferencial, como los conceptos anteriores, viene con un parámetro numérico que se puede modificar. Sin embargo, hay una gran diferencia en el significado de ese parámetro. Tomemos como ejemplo K-anonymity. Nos dice que cada registro del conjunto de datos de salida "se parece" al menorca otros “k − 1” registros. Pero, ¿el valor de “k” nos dice algo sobre el nivel de protección?</p>
+<p>La respuesta es… no mucho. No existe una relación clara entre el valor de “k” y el grado de privacidad del conjunto de datos. Así que elegir “k” es muy poco preciso y no se puede justificar de manera formal. El problema es aún peor con otros conceptos de la vieja escuela.</p>
+<p>La privacidad diferencial es mucho mejor. Cuando la usas, puedes cuantificar la mayor ganancia de información posible por parte del atacante. El parámetro correspondiente, llamado ε, permite hacer afirmaciones formales. Supongamos que ε = 1.1. Entonces, puedes decir: "un atacante que cree que su objetivo está en el conjunto de datos con una probabilidad del 50 % puede aumentar su nivel de certeza hasta un 75 % como máximo". Elegir el valor exacto de ε no es fácil, pero al menos se puede interpretar de manera formal.</p>
+<p>¿Y recuerdas el punto anterior sobre el modelado de ataques? Significa que puedes cambiar esta declaración de muchas maneras. Puede reemplazar "su objetivo es el conjunto de datos" por cualquier cosa sobre un individuo. Y puede agregar "no importa lo que el atacante sepa" si desea ser más preciso. En resumen, todo esto hace que la privacidad diferencial sea mucho más fuerte que todas las definiciones anteriores.</p>
+<h3 id="3.-Puedes-elaborar-múltiples-mecanismos">
+<a class="anchor" href="#3.-Puedes-elaborar-m%C3%BAltiples-mecanismos" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Puedes elaborar múltiples mecanismos<a class="anchor-link" href="#3.-Puedes-elaborar-m%C3%BAltiples-mecanismos"> </a>
+</h3>
+<p>Supongamos que tienes algunos datos. Quieres compartirlos con Alex y con Brinn, de forma anónima. Confías en Alex y en Brinn por igual, así que utilizas la misma definición de privacidad para ambos. No les interesan los mismos aspectos de los datos, así que les das dos versiones diferentes de tus datos. Ambas versiones son "anónimas", según la definición que hayas elegido.</p>
+<p>¿Qué ocurre si Alex y Brinn deciden conspirar y comparar los datos que les has dado? ¿La unión de las dos versiones anonimizadas seguirá siendo anónima? Resulta que para la mayoría de las definiciones de privacidad, este no es el caso. Si juntas dos versiones k-anónimas de los mismos datos, el resultado no será k-anónimo. Así que si Alex y Brinn colaboran, podrían ser capaces de reidentificar a los usuarios por su cuenta... ¡O incluso reconstruir todos los datos originales! Eso no es una buena noticia.</p>
+<p>Con la privacidad diferencial, puedes evitar este modo de fallo. Supongamos que das datos con privacidad diferencial a Alex y Brinn. Cada vez, usaste un parámetro de ε. Entonces, si conspiran, los datos resultantes siguen estando protegidos por la privacidad diferencial. El nivel de privacidad es ahora más débil: el parámetro pasa a ser 2ε. Así que siguen ganando algo de información, pero ahora se puede cuantificar cuánta. Esta propiedad se llama composición.</p>
+<p>Este escenario suena un poco improbable, pero la composición es super útil en la práctica. Las organizaciones suelen querer hacer muchas cosas con los datos. Publicar estadísticas, liberar una versión anónima, entrenar algoritmos de aprendizaje automático... La composición es una forma de mantener el control del nivel de riesgo a medida que aparecen nuevos casos de uso y los procesos evolucionan.</p>
+<h2 id="Conclusión">
+<a class="anchor" href="#Conclusi%C3%B3n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusión<a class="anchor-link" href="#Conclusi%C3%B3n"> </a>
+</h2>
+<p>Espero que la intuición básica de la privacidad diferencial esté cristalina. Si recuerdas una sola cosa, que sea este resumen de una línea: la incertidumbre en el proceso significa incertidumbre para el atacante, lo que significa mejor privacidad.</p>
+<p>También espero que ahora te preguntes cómo funciona realmente. ¿Qué se esconde detrás de esta magia que hace que todo sea seguro y privado? ¿Por qué la privacidad diferencial tiene todas las increíbles propiedades que he mencionado? Este es el tema exacto del siguiente artículo de esta serie, que lo explica con más detalle sin dejar de lado las matemáticas pesadas.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Esta publicación es una traduccón, el autor del post original es Damien Desfontaines en Twitter como <a href="https://twitter.com/TedOnPrivacy">@TedOnPrivacy</a>, el motivo que me llevo a traducir este al español fue aportar mi granito de arena a la comunidad hispana de Privacidad Diferencial</em></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="lzeladam/lzeladam"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/lzeladam/differential%20privacy/privacy-preserving/2021/10/14/Cursos-online-de-inteligencia-artificial-parte1.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/lzeladam/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/lzeladam/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/lzeladam/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lzeladam" target="_blank" title="lzeladam"><svg class="svg-icon grey"><use xlink:href="/lzeladam/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lzeladam" target="_blank" title="lzeladam"><svg class="svg-icon grey"><use xlink:href="/lzeladam/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
