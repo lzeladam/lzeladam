@@ -1,1 +1,1 @@
-Sitemap: http://lzeladam.com/lzeladam/sitemap.xml
+Sitemap: https://lzeladam.com/sitemap.xml
